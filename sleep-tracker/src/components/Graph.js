@@ -6,11 +6,11 @@ class Graph extends Component {
         super(props);
         this.state = {
             chartData: {
-                labels: this.props.dates.date,
+                labels: this.props.sessions.startTime,
                 datasets: [
                     {
                         label: 'Hours of Sleep',
-                        data: this.props.dates.sleep,
+                        data: Math.floor(this.props.sessions.startTime-this.props.sessions.endTime),
                         backgroundColor: ['blue']
                     }
                 ]

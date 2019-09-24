@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
-import DateList from './DateList';
+import DateList from './SessionList';
 import Graph from './Graph';
 // import axios from "axios";
 
 const HomePage = () => {
-//     const [dayList, setDaylistList] = useState([]);
-//     useEffect(() => {
-//       getData();
-//     }, []);
-//   const getData = () => {
-//     axiosWithAuth()
-//         .get('/dates')
-//         .then(res => setDateList(res.data))
-//         .catch(error => console.log(error));
-//   }
+    const [sessionList, setSessonList] = useState([]);
+    useEffect(() => {
+      getData();
+    }, []);
+  const getData = () => {
+    axiosWithAuth()
+        .get('/sessions')
+        .then(res => setDateList(res.data))
+        .catch(error => console.log(error));
+  }
     return (
       <>
-      <DateList dates={dateList} updateDates={setDateList} getData={getData} />
-      <Graph dates={DateList}/>
+      <SessionsList sessions={sessionList} updateSessions={setSessionList} getData={getData} />
+      <Graph sessions={sessions}/>
       </>
     );
   };
