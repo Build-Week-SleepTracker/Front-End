@@ -1,6 +1,10 @@
+import React from "react";
+import { axiosWithAuth } from "./axiosWithAuth";
+
 class Login extends React.Component {
     state = {
-        loading: false,
+      isLoggedIn: true,
+      userId: null,
       credentials: {
         email: '',
         username: '',
@@ -22,18 +26,20 @@ class Login extends React.Component {
       this.setState({ loading: true });
       
       axiosWithAuth()
-        .post('/login', this.state.credentials)
+        .post('/auth/login', this.state.credentials)
         .then(res => {
           localStorage.setItem('token', res.data.payload);
           
-          this.props.history.push('/');
+          this.props.history.push('/protected');
           this.setState({ loading: false });
         })
         .catch(err => console.log(err));
     };
+    
   
     render() {
       return (
+        
         <div>
           <form onSubmit={this.login}>
           <input
@@ -58,6 +64,8 @@ class Login extends React.Component {
           </form>
          
         </div>
+         
+      
       );
     }
   }

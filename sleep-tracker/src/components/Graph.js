@@ -3,14 +3,14 @@ import {Bar} from 'chart.js';
 
 class Graph extends Component {
     constructor() {
-        super(props);
+        super();
         this.state = {
             chartData: {
-                labels: this.props.sessions.startTime,
+                labels: ['Monday', "Tuesday", 'Wednesday','Thursday','Friday','Saturday','Sunday'], 
                 datasets: [
                     {
                         label: 'Hours of Sleep',
-                        data: Math.floor(this.props.sessions.startTime-this.props.sessions.endTime),
+                        data:[8, 6, 5, 9, 10, 7, 11,],
                         backgroundColor: ['blue']
                     }
                 ]

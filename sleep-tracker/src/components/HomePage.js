@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from "react";
-import DateList from './SessionList';
+import React, { useState, useEffect, useContext } from "react";
+import { axiosWithAuth } from "./axiosWithAuth";
+import SessionList from './SessionList';
+import SessionsContext from '../contexts/SessionContext';
 import Graph from './Graph';
 // import axios from "axios";
 
 const HomePage = () => {
-    const [sessionList, setSessonList] = useState([]);
+    const {sessionList, setSessionList} = useContext(SessionsContext);
     useEffect(() => {
       getData();
     }, []);
-  const getData = () => {
+    const getData = () => {
     axiosWithAuth()
-        .get('/sessions')
-        .then(res => setDateList(res.data))
+        .get('/users/sleeps')
+        .then(res => setSessionList(res.data))
         .catch(error => console.log(error));
-  }
+    }
     return (
       <>
-      <SessionsList sessions={sessionList} updateSessions={setSessionList} getData={getData} />
-      <Graph sessions={sessions}/>
+      <SessionList sessions={sessionList} updateSessions={setSessionList} getData={getData} />
+      {/* <Graph sessions={session}/> */}
       </>
     );
   };
