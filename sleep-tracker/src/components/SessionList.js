@@ -110,7 +110,7 @@ const SessionList = ({ sessions, updateSession, getData }) => {
              </select>
             </label>
           <label>
-            Average mood for day:
+            mood for day:
             <select type = "number" name="sleepquality"   onChange={e =>
                 setSessionToEdit({ ...sessionToEdit, sleepquality: e.target.value })} >
              <option value="1" >1</option>
