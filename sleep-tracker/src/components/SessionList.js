@@ -5,7 +5,8 @@ import { axiosWithAuth } from "./axiosWithAuth";
 const initialSession = {
   bedtime:'',
   waketime: '',
-  date:'',
+  date:null,
+  user_id: Date.now(),
   sleepquality:'',
 };
 
@@ -32,11 +33,12 @@ const SessionList = ({ sessions, updateSession, getData }) => {
             
       };
 
-     const createSession = session => {
-    console.log(session);
-   
+     const createSession = e => {
+       e.preventDefault();
+    console.log(sessionToEdit);
+   sessionToEdit.sleepquality = parseInt(sessionToEdit.sleepquality);
      axiosWithAuth()
-      .post(`/users/sleeps/`, sessionToEdit)
+      .post(`/users/sleeps`, sessionToEdit)
       .then(res => {
         console.log(res);
         getData();
@@ -46,6 +48,7 @@ const SessionList = ({ sessions, updateSession, getData }) => {
 
   const deleteSession = session => {
     console.log(session);
+    sessionToEdit.sleepquality = parseInt(sessionToEdit.sleepquality);
      axiosWithAuth()
       .delete(`/users/sleeps/${session.id}`, session.id)
       .then(res => {
@@ -57,6 +60,8 @@ const SessionList = ({ sessions, updateSession, getData }) => {
 
   return (
     <div className="homepage-container">
+
+      {!editing && (
     <form onSubmit={createSession}>
           <legend>New Sleep Session</legend>
          
@@ -85,10 +90,7 @@ const SessionList = ({ sessions, updateSession, getData }) => {
           <label>
             Date:
             <input type="date"
-              onChange={e =>
-                setSessionToEdit({ ...sessionToEdit, date: e.target.value }) 
-              }
-              value={sessionToEdit.date}
+             
             />
           </label>
           <label>
@@ -125,9 +127,10 @@ const SessionList = ({ sessions, updateSession, getData }) => {
             <button onClick={() => setEditing(false)}>cancel</button>
           </div>
         </form>
+        )}
         {editing && (
-            <form onSubmit={createSession}>
-            <legend>New Sleep Session</legend>
+            <form onSubmit={saveEdit}>
+            <legend>Edit Session</legend>
            
             <label>
               Bed Time:
@@ -154,10 +157,7 @@ const SessionList = ({ sessions, updateSession, getData }) => {
             <label>
               Date:
               <input type="date"
-                onChange={e =>
-                  setSessionToEdit({ ...sessionToEdit, date: e.target.value }) 
-                }
-                value={sessionToEdit.date}
+               
               />
             </label>
             <label>
