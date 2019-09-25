@@ -24,13 +24,22 @@ const [sessionList, setSessionList] = useState([])
           <li>
             <Link to="/protected">Homepage</Link>
           </li> 
+          <li>
+              {/* journal */}
+          </li>
+          <li>
+               {/* survey */}
+          </li>
+          <li>
+               {/* contact form */}
+          </li>
         </ul>
       </div>
       <Switch>
           <Route exact path="/protected" component={HomePage} />
           <Route path="/login" component={Login} />
           <Route component={Login} />
-          
+           
         </Switch>
 
     </div>
