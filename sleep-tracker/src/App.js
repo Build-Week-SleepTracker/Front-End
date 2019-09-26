@@ -6,7 +6,6 @@ import PrivateRoute from './components/PrivateRoute';
 import SessionsContext from './contexts/SessionContext'
 import './App.css';
 import ContactForm from "./components/ContactForm";
-
 import Survey from './components/SurveyForm';
 import Star from './components/SurveyRating'
 
@@ -40,15 +39,14 @@ const [sessionList, setSessionList] = useState([])
           </li>
         </ul>
       </div>
-      {/* <Switch> */}
-          <Route exact path="/protected" component={HomePage} />
+      <Switch>
+          <PrivateRoute exact path="/protected" component={HomePage} />
           <Route exact path="/login" component={Login} />
-          <Route component={Login} />
           <Route exact path='/contactForm' component={ContactForm}/>
-          <Route exact path="/survey" component={Survey} />
+          <Route  exactpath="/survey" component={Survey} />
           <Route exact path ="/survey" component ={Star} />
            
-        {/* </Switch> */}
+        </Switch>
 
     </div>
     </Router>
