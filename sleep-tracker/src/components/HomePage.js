@@ -17,10 +17,13 @@ const HomePage = () => {
         .catch(error => console.log(error));
     }
     return (
-      <>
+      
+      <div className="whole-page">
+     
       <SessionList sessions={sessionList} updateSessions={setSessionList} getData={getData} />
      
-      </>
+      </div>
+      
     );
   };
   
