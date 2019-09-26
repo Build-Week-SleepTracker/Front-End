@@ -8,6 +8,14 @@ import {Link } from 'react-router-dom';
 
 const Survey =({errors, touched, status}) => {
 
+  // const initialSurvey = {
+  //   Name: "",
+  //   Age: "",
+  //   Email: "",
+  //   Question1: "",
+  //   Question2: ""
+  // }
+
   const [survey, setSurvey] = useState([]);
 
   useEffect(() => {
@@ -25,13 +33,13 @@ const Survey =({errors, touched, status}) => {
                 <h3>To help you get the best sleep, we need to know a couple of things about you.</h3>
             </div>
             <Form className="survey-form">
-              {touched.Name && errors.Name && <p>{errors.Name}</p>}
+              {touched.Name && errors.Name && <p className='survey-form-errors'>{errors.Name}</p>}
               <Field className='survey_name' type="text" name="Name" placeholder="Name" />
               
-              {touched.Age && errors.Name && <p>{errors.Age}</p>}
+              {touched.Age && errors.Name && <p className='survey-form-errors'>{errors.Age}</p>}
               <Field className='survey_age' type="text" name="Age" placeholder="Age" />
         
-              {touched.Email && errors.Name && <p>{errors.Email}</p>}
+              {touched.Email && errors.Name && <p className='survey-form-errors'>{errors.Email}</p>}
               <Field className='survey_email' type="text" name="Email" placeholder="Email" />
       
               <Field className='survey_question' component="textarea" type="text" name="Question1" placeholder="What is something you love about using this app?  " />
@@ -40,8 +48,8 @@ const Survey =({errors, touched, status}) => {
         
               <button className='survey-btn' type="submit">Submit
               </button>
+      <button className="rating-btn"><Link className="survey-link" to="/survey-rating">Rate Us</Link></button>
             </Form>
-        <Link to="/survey-rating">Rate Us!</Link>
         </div>
     
         
