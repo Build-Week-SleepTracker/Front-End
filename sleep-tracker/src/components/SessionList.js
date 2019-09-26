@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { axiosWithAuth } from "./axiosWithAuth";
 import {Bar, Pie} from 'react-chartjs-2';
-import Graph from './Graph'
+
 const initialSession = {
   bedtime:'',
   waketime: '',
@@ -90,6 +90,7 @@ const chartData = {
   };
 
   return (
+    <div className='main-container'> 
     <div className="homepage-container">
 
       {!editing && (
@@ -230,9 +231,11 @@ const chartData = {
             </div>
           </form>
       )} 
-      <div className="spacer" />
-    <div className="session-list">
+</div>
+<div className="bottom-container"> 
+    <div className="session-container">
       <p>Sessions</p>
+      <div className="list">
       <ul>
         {sessions.map(session => (
           <li key={session.id} onClick={() => editSession(session)}>
@@ -245,7 +248,9 @@ const chartData = {
           </li>
         ))}
  </ul>  
-     </div>
+ </div>
+ 
+    </div>
      <div className ="Graph">
      
      <Bar 
@@ -253,7 +258,8 @@ const chartData = {
       />
      
       </div>
-      
+       
+   </div> 
     </div>
   );
 };

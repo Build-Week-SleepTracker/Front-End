@@ -36,7 +36,7 @@ const [sessionList, setSessionList] = useState([])
         </ul>
       </div>
       <Switch>
-          <Route exact path="/protected" component={HomePage} />
+          <PrivateRoute exact path="/protected" component={HomePage} />
           <Route path="/login" component={Login} />
           <Route component={Login} />
            

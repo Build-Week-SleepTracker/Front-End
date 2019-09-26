@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { axiosWithAuth } from "./axiosWithAuth";
 import SessionList from './SessionList';
 import SessionsContext from '../contexts/SessionContext';
-
+import '../HomePage.css'
 // import axios from "axios";
 
 const HomePage = () => {
