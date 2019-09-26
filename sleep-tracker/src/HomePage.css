@@ -10,7 +10,7 @@ body {
 .whole-page {
   display: flex;
   justify-content: center;
-  background-color: rgb(169, 206, 255);
+  background-color: #258e
 }
 .main-container {
   padding: 0 50px;
@@ -60,9 +60,13 @@ body {
   align-items: center;
 }
 
-
+h4 {
+  color: rgb(40, 55, 117);
+  
+}
 
 .homepage-container {
+  margin-top: 30px;
  display: flex;
  flex-direction: column;
  justify-content: top;

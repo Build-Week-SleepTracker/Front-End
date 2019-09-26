@@ -42,6 +42,9 @@ class Login extends React.Component {
       return (
         <div className="login-container">
         <div className="login-form">
+        
+          <div className="login-card">
+            <div>💤</div>
           <form onSubmit={this.login}>
           {/* <input
               type="text"
@@ -67,6 +70,8 @@ class Login extends React.Component {
           <Link to="protected"> <button>Log in</button></Link>
           </form>
           <Register/>
+          <div>💤</div>
+          </div>
         </div>
         </div>
       

@@ -31,20 +31,19 @@ const chartData = {
   }),
   datasets: [
       {
-          label: sessions.map(session => {
-            if(session.sleepquality === 4) {
-              return ` ${session.date} was a happy day!   you slept from: ${session.bedtime} - ${session.waketime}!`
-            }
-            else {
-              return ""
-            }
-          }),
-          data:sessions.map(session =>{
+          label: "Your Daily Mood",
+          data: sessions.map(session =>{
             return session.sleepquality
-          }) ,
-          backgroundColor: [
-            'rgb(52, 70, 151)'
-          ]
+          }),
+         backgroundColor: 
+           'rgb(52, 70, 151)'
+         
+         
+         
+
+        
+
+          
       }
     ]
 
@@ -91,8 +90,9 @@ const chartData = {
 
   return (
     <div className='main-container'> 
+   
     <div className="homepage-container">
-
+    
       {!editing && (
     <form onSubmit={createSession}>
           <legend>New Sleep Session</legend>
@@ -132,29 +132,29 @@ const chartData = {
           <label>
             Tired rating at bed time:
             <select name="MOB">
-             <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-             <option value="">4</option>
+             <option value="">😭</option>
+              <option value="">😟</option>
+              <option value="">🙂</option>
+             <option value="">😃</option>
              </select>
           </label>
           <label>
             Mood when waking:
             <select name="MOW">
-             <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-             <option value="">4</option>
+             <option value="">😭</option>
+              <option value="">😟</option>
+              <option value="">🙂</option>
+             <option value="">😃</option>
              </select>
             </label>
           <label>
             mood for day:
             <select type = "number" name="sleepquality"   onChange={e =>
                 setSessionToEdit({ ...sessionToEdit, sleepquality: e.target.value })} >
-             <option value="1" >1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-             <option value="4">4</option>
+             <option value="1" >😭</option>
+              <option value="2">😟</option>
+              <option value="3">🙂</option>
+             <option value="4">😃</option>
              </select>
        
           </label>
@@ -199,29 +199,29 @@ const chartData = {
             <label>
               Tired rating at bed time:
               <select name="MOB">
-               <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-               <option value="">4</option>
+               <option value="">😭</option>
+                <option value="">😟</option>
+                <option value="">🙂</option>
+               <option value="">😃</option>
                </select>
             </label>
             <label>
               Mood when waking:
               <select name="MOW">
-               <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-               <option value="">4</option>
+               <option value="">😭</option>
+                <option value="">😟</option>
+                <option value="">🙂</option>
+               <option value="">😃</option>
                </select>
               </label>
             <label>
               mood for day:
               <select type = "number" name="sleepquality"   onChange={e =>
                   setSessionToEdit({ ...sessionToEdit, sleepquality: e.target.value })} >
-               <option value="1" >1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-               <option value="4">4</option>
+               <option value="1" >😭</option>
+                <option value="2">😟</option>
+                <option value="3">🙂</option>
+               <option value="4">😃</option>
                </select>
          
             </label>
@@ -234,6 +234,11 @@ const chartData = {
 </div>
 <div className="bottom-container"> 
     <div className="session-container">
+    <h4> {sessions.map(session => {
+            if(session.sleepquality === 4) {
+              return `${session.date} was a happy day 😃!  
+                 you slept from: ${session.bedtime} - ${session.waketime}  military time!`
+            }})} </h4>
       <p>Sessions</p>
       <div className="list">
       <ul>
@@ -251,10 +256,12 @@ const chartData = {
  </div>
  
     </div>
+    
      <div className ="Graph">
      
      <Bar 
         data={chartData}
+       
       />
      
       </div>
