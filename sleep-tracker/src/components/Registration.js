@@ -1,13 +1,12 @@
 import React from "react";
 import { axiosWithAuth } from "./axiosWithAuth";
 import {Link} from 'react-router-dom';
-import Register from './Registration';
-import '../Login.css'
-class Login extends React.Component {
+
+class Register extends React.Component {
     state = {
-        loading: false,
+        loading: true,
       credentials: {
-        // email: '',
+        email: '',
         username: '',
         password: ''
       }
@@ -27,11 +26,11 @@ class Login extends React.Component {
       this.setState({ loading: true });
       
       axiosWithAuth()
-        .post('/auth/login', this.state.credentials)
+        .post('/register', this.state.credentials)
         .then(res => {
           localStorage.setItem('token', res.data.payload);
           
-          this.props.history.push('/protected');
+        //   this.props.history.push('/protected');
           this.setState({ loading: false });
         })
         .catch(err => console.log(err));
@@ -40,16 +39,16 @@ class Login extends React.Component {
   
     render() {
       return (
-        <div className="login-container">
-        <div className="login-form">
+        
+        <div>
           <form onSubmit={this.login}>
-          {/* <input
+          <input
               type="text"
               name="email"
               placeholder="email"
               value={this.state.credentials.email}
               onChange={this.handleChange}
-            /> */}
+            />
             <input
               type="text"
               name="username"
@@ -64,14 +63,14 @@ class Login extends React.Component {
               value={this.state.credentials.password}
               onChange={this.handleChange}
             />
-          <Link to="protected"> <button>Log in</button></Link>
+          <Link to="/login"><button>Register</button></Link>
           </form>
-          <Register/>
+         
         </div>
-        </div>
+         
       
       );
     }
   }
   
-  export default Login;
+  export default Register;

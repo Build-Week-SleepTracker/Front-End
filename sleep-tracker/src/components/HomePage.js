@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { axiosWithAuth } from "./axiosWithAuth";
 import SessionList from './SessionList';
 import SessionsContext from '../contexts/SessionContext';
-import Graph from './Graph';
+import '../HomePage.css'
 // import axios from "axios";
 
 const HomePage = () => {
@@ -19,7 +19,7 @@ const HomePage = () => {
     return (
       <>
       <SessionList sessions={sessionList} updateSessions={setSessionList} getData={getData} />
-      {/* <Graph sessions={session}/> */}
+     
       </>
     );
   };

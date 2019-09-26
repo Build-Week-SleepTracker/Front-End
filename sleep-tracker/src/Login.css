@@ -1,0 +1,15 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    height: 1000px;
+
+  }
+  
+  .login-form {
+     display: flex;
+     flex-direction: column;
+  }
+
+  .login-form form {
+      margin: 25px;
+  }

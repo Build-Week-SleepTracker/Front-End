@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { axiosWithAuth } from "./axiosWithAuth";
+import {Bar, Pie} from 'react-chartjs-2';
 
 const initialSession = {
   bedtime:'',
   waketime: '',
   date:'',
+  user_id: Date.now(),
   sleepquality:'',
 };
+
 
 const SessionList = ({ sessions, updateSession, getData }) => {
     console.log(sessions);
@@ -19,6 +22,35 @@ const SessionList = ({ sessions, updateSession, getData }) => {
       setEditing(true);
       setSessionToEdit(session);
     };
+
+    
+const chartData = {
+  
+  labels: sessions.map(session =>{
+    return session.date
+  }),
+  datasets: [
+      {
+          label: sessions.map(session => {
+            if(session.sleepquality === 4) {
+              return ` ${session.date} was a happy day!   you slept from: ${session.bedtime} - ${session.waketime}!`
+            }
+            else {
+              return ""
+            }
+          }),
+          data:sessions.map(session =>{
+            return session.sleepquality
+          }) ,
+          backgroundColor: [
+            'blue'
+          ]
+      }
+    ]
+
+}
+
+
 
     const saveEdit = e => {
         e.preventDefault();
@@ -32,11 +64,12 @@ const SessionList = ({ sessions, updateSession, getData }) => {
             
       };
 
-     const createSession = session => {
-    console.log(session);
-   
+     const createSession = e => {
+       e.preventDefault();
+    console.log(sessionToEdit);
+   sessionToEdit.sleepquality = parseInt(sessionToEdit.sleepquality);
      axiosWithAuth()
-      .post(`/users/sleeps/`, sessionToEdit)
+      .post(`/users/sleeps`, sessionToEdit)
       .then(res => {
         console.log(res);
         getData();
@@ -46,6 +79,7 @@ const SessionList = ({ sessions, updateSession, getData }) => {
 
   const deleteSession = session => {
     console.log(session);
+    sessionToEdit.sleepquality = parseInt(sessionToEdit.sleepquality);
      axiosWithAuth()
       .delete(`/users/sleeps/${session.id}`, session.id)
       .then(res => {
@@ -56,7 +90,10 @@ const SessionList = ({ sessions, updateSession, getData }) => {
   };
 
   return (
+    <div className='main-container'> 
     <div className="homepage-container">
+
+      {!editing && (
     <form onSubmit={createSession}>
           <legend>New Sleep Session</legend>
          
@@ -86,9 +123,10 @@ const SessionList = ({ sessions, updateSession, getData }) => {
             Date:
             <input type="date"
               onChange={e =>
-                setSessionToEdit({ ...sessionToEdit, date: e.target.value }) 
-              }
-              value={sessionToEdit.date}
+                setSessionToEdit({
+                  ...sessionToEdit,
+                  date: e.target.value})
+                }
             />
           </label>
           <label>
@@ -125,9 +163,10 @@ const SessionList = ({ sessions, updateSession, getData }) => {
             <button onClick={() => setEditing(false)}>cancel</button>
           </div>
         </form>
+        )}
         {editing && (
-            <form onSubmit={createSession}>
-            <legend>New Sleep Session</legend>
+            <form onSubmit={saveEdit}>
+            <legend>Edit Session</legend>
            
             <label>
               Bed Time:
@@ -154,10 +193,7 @@ const SessionList = ({ sessions, updateSession, getData }) => {
             <label>
               Date:
               <input type="date"
-                onChange={e =>
-                  setSessionToEdit({ ...sessionToEdit, date: e.target.value }) 
-                }
-                value={sessionToEdit.date}
+               
               />
             </label>
             <label>
@@ -195,9 +231,11 @@ const SessionList = ({ sessions, updateSession, getData }) => {
             </div>
           </form>
       )} 
-      <div className="spacer" />
-    <div className="session-list">
+</div>
+<div className="bottom-container"> 
+    <div className="session-container">
       <p>Sessions</p>
+      <div className="list">
       <ul>
         {sessions.map(session => (
           <li key={session.id} onClick={() => editSession(session)}>
@@ -205,15 +243,23 @@ const SessionList = ({ sessions, updateSession, getData }) => {
               <span className="delete" onClick={() => deleteSession(session)}>
                 x
               </span>{" "}
-              {session.bedtime}
+              {session.date}
             </span>
           </li>
         ))}
  </ul>  
-     </div>
-
+ </div>
+ 
+    </div>
+     <div className ="Graph">
      
-      
+     <Bar 
+        data={chartData}
+      />
+     
+      </div>
+       
+   </div> 
     </div>
   );
 };
