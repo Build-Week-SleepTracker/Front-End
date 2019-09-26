@@ -37,6 +37,7 @@ const chartData = {
           }),
          backgroundColor: 
            'rgb(52, 70, 151)'
+           
          
          
          
@@ -235,19 +236,15 @@ const chartData = {
 </div>
 <div className="bottom-container"> 
     <div className="session-container">
-    <h4> {sessions.map(session => {
-            if(session.sleepquality === 4) {
-              return `${session.date} was a happy day 😃!  
-                 you slept from: ${session.bedtime} - ${session.waketime}  military time!`
-            }})} </h4>
+   
       <p>Sessions</p>
       <div className="list">
       <ul>
         {sessions.map(session => (
-          <li key={session.id} onClick={() => editSession(session)}>
+          <li id="sessionDate" key={session.id} onClick={() => editSession(session)}>
             <span>
               <span className="delete" onClick={() => deleteSession(session)}>
-                O
+              ❌
               </span>{" "}
               {session.date}
             </span>
@@ -255,7 +252,36 @@ const chartData = {
         ))}
  </ul>  
  </div>
- 
+  <h3> {sessions.map(session => {
+            if(session.sleepquality === 4) {
+              return ``  
+                
+            }})} 
+            
+            </h3>
+            <div className="message-container" >
+            <h4> {sessions.map(session => {
+            if(session.sleepquality === 4) {
+              return `-${session.date} was a happy day 😃
+                 you slept from: ${session.bedtime} - ${session.waketime}  military time!-`
+            }})} </h4>
+            <h4> {sessions.map(session => {
+            if(session.sleepquality === 3) {
+              return `       -${session.date} was an OK day 🙂
+                 you slept from: ${session.bedtime} - ${session.waketime}  military time!- `
+            }})} </h4>
+
+            <h4> {sessions.map(session => {
+            if(session.sleepquality === 2) {
+              return `-${session.date} was a hard day 😟
+                 you slept from: ${session.bedtime} - ${session.waketime}  military time!-`
+            }})} </h4>
+            <h4> {sessions.map(session => {
+            if(session.sleepquality === 1) {
+              return `-${session.date} was a miserable day 😭
+                 you slept from: ${session.bedtime} - ${session.waketime}  military time!-`
+            }})} </h4>
+            </div>
     </div>
     
      <div className ="Graph">
@@ -269,7 +295,9 @@ const chartData = {
        
    </div> 
    <div>💤</div>
+   <br></br>
     </div>
+    
   );
 };
 

@@ -8,7 +8,7 @@ import './App.css';
 import ContactForm from "./components/ContactForm";
 import Survey from './components/SurveyForm';
 import Star from './components/SurveyRating'
-
+import SleepJournal from './components/SleepJournal/SleepJournal'
 
 
 function App() {
@@ -29,6 +29,7 @@ const [sessionList, setSessionList] = useState([])
           </li> 
           <li>
               {/* journal */}
+              <Link to='/journal'>Sleep Journal</Link> 
           </li>
           <li>
                {/* survey */}
@@ -43,13 +44,9 @@ const [sessionList, setSessionList] = useState([])
           <PrivateRoute exact path="/protected" component={HomePage} />
           <Route exact path="/login" component={Login} />
           <Route exact path='/contactForm' component={ContactForm}/>
-<<<<<<< HEAD
           <Route exact path="/survey" component={Survey} />
           <Route exact path ="/survey-rating" component ={Star} />
-=======
-          <Route  exactpath="/survey" component={Survey} />
-          <Route exact path ="/survey" component ={Star} />
->>>>>>> 3f89f5d0c38841ecb79e061a1e18d50258781444
+         < Route exact path ="/journal" component ={SleepJournal} />
            
         </Switch>
 

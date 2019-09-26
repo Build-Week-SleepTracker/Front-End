@@ -3,7 +3,7 @@ import logo from "./img/Logo Black.png"
 import axios from "axios";
 import {Link, Route} from "react-router-dom";
 import HomePage from "../HomePage";
-import './App.css';
+import '../../App.css';
 import styled from "styled-components";
 
 const SleepJournalStyle = styled.div`
