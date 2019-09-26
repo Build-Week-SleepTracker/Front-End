@@ -5,6 +5,9 @@ import HomePage from './components/HomePage';
 import PrivateRoute from './components/PrivateRoute';
 import SessionsContext from './contexts/SessionContext'
 import './App.css';
+import ContactForm from "./components/ContactForm";
+import Survey from './components/SurveyForm';
+import Star from './components/SurveyRating'
 
 
 
@@ -19,26 +22,29 @@ const [sessionList, setSessionList] = useState([])
       <div className ="header">
       <ul>
           <li>
-            <Link to="/login">Login</Link>
+              <Link to="/login">Login</Link>
           </li>
           <li>
-            <Link to="/protected">Homepage</Link>
+              <Link to="/protected">Homepage</Link>
           </li> 
           <li>
               {/* journal */}
           </li>
           <li>
                {/* survey */}
+               <Link to="/survey">Customer Service</Link>
           </li>
           <li>
-               {/* contact form */}
+              <Link to='/contactForm'>Contact Form</Link>
           </li>
         </ul>
       </div>
       <Switch>
-          <Route exact path="/protected" component={HomePage} />
-          <Route path="/login" component={Login} />
-          <Route component={Login} />
+          <PrivateRoute exact path="/protected" component={HomePage} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path='/contactForm' component={ContactForm}/>
+          <Route  exactpath="/survey" component={Survey} />
+          <Route exact path ="/survey" component ={Star} />
            
         </Switch>
 
