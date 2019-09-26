@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import Rating from "react-rating"
-import axios from "axios"
+import Rating from "react-rating";
+import axios from "axios";
+
+import {Link } from 'react-router-dom';
 
 
 
@@ -34,15 +36,17 @@ const Star = () => {
 
   
   return (
-     <div className ="Star">
-       <form  onSubmit={handleSubmit}>
-         <h1>Rate Us</h1>
-          <Rating emptySymbol="far fa-star fa-2x" fullSymbol="fa fa-star fa-2x"/>
-          <textarea className="feedback" name="notes" onChange={handleChange}  placeholder="Feedback" ></textarea>
-          <button>Next</button>
-
-       </form>
-        </div>
+     <div  className="wrapper-survey-rating">
+       <div className ="Star">
+         <form className='rating-form' onSubmit={handleSubmit}>
+           <h1>Rate Us</h1>
+            <Rating emptySymbol="far fa-star fa-2x" fullSymbol="fa fa-star fa-2x"/>
+            <textarea className="feedback" name="notes" onChange={handleChange}  placeholder="Feedback" ></textarea>
+            <button>Next</button>
+  
+         </form>
+          </div>
+     </div>
   
   )
   

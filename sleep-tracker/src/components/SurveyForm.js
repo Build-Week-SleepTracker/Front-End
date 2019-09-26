@@ -4,6 +4,7 @@ import { withFormik, Form, Field } from 'formik';
 import * as yup from 'yup';
 import axios from "axios";
 
+import {Link } from 'react-router-dom';
 
 const Survey =({errors, touched, status}) => {
 
@@ -16,25 +17,35 @@ const Survey =({errors, touched, status}) => {
   },[status])
 
   return (
-      <Form>
-        <h1>Hello there!</h1>
-        <h3>To help you get the best sleep, we need to know a couple of things about you.</h3>
-        {touched.Name && errors.Name && <p>{errors.Name}</p>}
-        <Field type="text" name="Name" placeholder="Name" />
+     <div className="wrapper-surveyForm">
+
+        <div className= 'survey-container'>
+            <div className ='top-survey'>
+              <h1>Hello there!</h1>
+                <h3>To help you get the best sleep, we need to know a couple of things about you.</h3>
+            </div>
+            <Form className="survey-form">
+              {touched.Name && errors.Name && <p>{errors.Name}</p>}
+              <Field className='survey_name' type="text" name="Name" placeholder="Name" />
+              
+              {touched.Age && errors.Name && <p>{errors.Age}</p>}
+              <Field className='survey_age' type="text" name="Age" placeholder="Age" />
         
-        {touched.Age && errors.Name && <p>{errors.Age}</p>}
-        <Field type="text" name="Age" placeholder="Age" />
-  
-        {touched.Email && errors.Name && <p>{errors.Email}</p>}
-        <Field type="text" name="Email" placeholder="Email" />
-
-        <Field component="textarea" type="text" name="Question1" placeholder="What is something you love about using this app?  " />
-
-        <Field component="textarea" type="text" name="Question2" placeholder="What is something that can be better implemented? " />
-  
-        <button type="submit">Submit
-        </button>
-      </Form>
+              {touched.Email && errors.Name && <p>{errors.Email}</p>}
+              <Field className='survey_email' type="text" name="Email" placeholder="Email" />
+      
+              <Field className='survey_question' component="textarea" type="text" name="Question1" placeholder="What is something you love about using this app?  " />
+      
+              <Field className='survey_question' component="textarea" type="text" name="Question2" placeholder="What is something that can be better implemented? " />
+        
+              <button className='survey-btn' type="submit">Submit
+              </button>
+            </Form>
+        <Link to="/survey-rating">Rate Us!</Link>
+        </div>
+    
+        
+     </div>
   )
 }
 

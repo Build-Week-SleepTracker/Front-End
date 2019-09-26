@@ -142,3 +142,82 @@ h1 {
 }
 
 /*End of ContactForm Css*/
+
+
+/* SurveyForm */
+
+.wrapper-surveyForm {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #258ea6;
+}
+
+.survey-container {
+  width:50%;
+  margin:auto;
+  background:lightcyan;
+  border-radius:5px;
+}
+
+.top-survey {
+  margin:auto;
+}
+
+.survey-form {
+  margin:auto;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.survey_name,
+.survey_age,
+.survey_email,
+.survey_question{
+  font-size: 0.8em;
+  margin-bottom: 0.25em;
+  color: #222;
+  font-weight: lighter;
+  padding: 20px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #cfcfcf;
+  margin-right: 1%;
+  
+}
+.survey-btn{
+  margin:20px auto;
+  width:50%;
+  padding:10px;
+}
+
+.wrapper-survey-rating{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #258ea6;
+}
+
+.Star {
+  width:50%;
+  margin:auto;
+  background:lightcyan;
+  border-radius:5px;
+}
+.rating-form {
+  margin:auto;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  
+}
+/* End of SurveyForm*/

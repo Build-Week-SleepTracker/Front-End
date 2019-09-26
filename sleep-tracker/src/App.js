@@ -46,7 +46,7 @@ const [sessionList, setSessionList] = useState([])
           <Route component={Login} />
           <Route exact path='/contactForm' component={ContactForm}/>
           <Route exact path="/survey" component={Survey} />
-          <Route exact path ="/survey" component ={Star} />
+          <Route exact path ="/survey-rating" component ={Star} />
            
         {/* </Switch> */}
 
