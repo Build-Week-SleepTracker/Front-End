@@ -10,7 +10,7 @@ body {
 .whole-page {
   display: flex;
   justify-content: center;
-  background-color: #258e
+  background-color: #258ea6
 }
 .main-container {
   padding: 0 50px;
@@ -37,7 +37,7 @@ body {
 }
 .session-container p {
   font-size: 1.5rem;
-  padding-left: 40px;
+  
   font-weight: bold;
   color: rgb(52, 70, 151);
   text-align: center;
@@ -48,8 +48,9 @@ body {
 .Graph {
   height: 500px;
   width: 1000px;
-  margin-bottom: 20px;
+  margin: 20px 0;
   box-shadow: 0 3px 6px rgba(196, 196, 196, 0.16), 0 3px 6px rgba(207, 206, 206, 0.23);
+ 
 }
 .bottom-container {
   margin: 20px 0px;
@@ -65,12 +66,18 @@ h4 {
   
 }
 
+h3 {
+  color: rgb(40, 55, 117);
+  
+}
+
 .homepage-container {
   margin-top: 30px;
  display: flex;
  flex-direction: column;
  justify-content: top;
  align-content: center;
+ border-radius: 5px;
 
   height: 360px;
   width: 420px;
@@ -159,4 +166,7 @@ form > input {
 
 .list {
   box-shadow: 0px 3px 6px rgba(196, 196, 196, 0.16), 0 3px 6px rgba(207, 206, 206, 0.23);
+}
+.message-container {
+  overflow: auto;
 }

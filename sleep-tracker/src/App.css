@@ -16,10 +16,22 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #09d3ac;
+a {
+  color: rgb(52, 70, 151);
 }
+
+
+.header ul {
+  margin: 0;
+  padding: 10px;
+  box-shadow: 0px 3px 6px rgba(196, 196, 196, 0.16), 0 3px 6px rgba(207, 206, 206, 0.23);
+  
+}
+.header {
+  height: 59px;
+  
+}
+
 
 /* Header-Nav */
 

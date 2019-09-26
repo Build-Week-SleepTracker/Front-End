@@ -8,7 +8,7 @@ import './App.css';
 import ContactForm from "./components/ContactForm";
 import Survey from './components/SurveyForm';
 import Star from './components/SurveyRating'
-
+import SleepJournal from './components/SleepJournal/SleepJournal'
 
 
 function App() {
@@ -22,20 +22,21 @@ const [sessionList, setSessionList] = useState([])
       <div className ="header">
       <ul>
           <li>
-              <Link to="/login">Login</Link>
+              <Link to="/login" style={{ textDecoration: 'none'}}>Login</Link>
           </li>
           <li>
-              <Link to="/protected">Homepage</Link>
+              <Link to="/protected" style={{ textDecoration: 'none'}}>Homepage</Link>
           </li> 
           <li>
               {/* journal */}
+              <Link to='/journal' style={{ textDecoration: 'none' }}>Sleep Journal</Link> 
           </li>
           <li>
                {/* survey */}
-               <Link to="/survey">Customer Service</Link>
+               <Link to="/survey" style={{ textDecoration: 'none' }}>Customer Service</Link>
           </li>
           <li>
-              <Link to='/contactForm'>Contact Form</Link>
+              <Link to='/contactForm' style={{ textDecoration: 'none' }}>Contact Form</Link>
           </li>
         </ul>
       </div>
@@ -45,6 +46,7 @@ const [sessionList, setSessionList] = useState([])
           <Route exact path='/contactForm' component={ContactForm}/>
           <Route exact path="/survey" component={Survey} />
           <Route exact path ="/survey-rating" component ={Star} />
+         < Route exact path ="/journal" component ={SleepJournal} />
            
         </Switch>
 
