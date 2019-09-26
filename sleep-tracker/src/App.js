@@ -7,6 +7,9 @@ import SessionsContext from './contexts/SessionContext'
 import './App.css';
 import ContactForm from "./components/ContactForm";
 
+import Survey from './components/SurveyForm';
+import Star from './components/SurveyRating'
+
 
 
 function App() {
@@ -30,19 +33,22 @@ const [sessionList, setSessionList] = useState([])
           </li>
           <li>
                {/* survey */}
+               <Link to="/survey">Customer Service</Link>
           </li>
           <li>
               <Link to='/contactForm'>Contact Form</Link>
           </li>
         </ul>
       </div>
-      <Switch>
+      {/* <Switch> */}
           <Route exact path="/protected" component={HomePage} />
-          <Route path="/login" component={Login} />
+          <Route exact path="/login" component={Login} />
           <Route component={Login} />
           <Route exact path='/contactForm' component={ContactForm}/>
+          <Route exact path="/survey" component={Survey} />
+          <Route exact path ="/survey" component ={Star} />
            
-        </Switch>
+        {/* </Switch> */}
 
     </div>
     </Router>
