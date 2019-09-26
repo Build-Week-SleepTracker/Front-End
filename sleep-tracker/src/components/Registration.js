@@ -26,11 +26,11 @@ class Register extends React.Component {
       this.setState({ loading: true });
       
       axiosWithAuth()
-        .post('/register', this.state.credentials)
+        .post('/auth/register', this.state.credentials)
         .then(res => {
           localStorage.setItem('token', res.data.payload);
-          
-        //   this.props.history.push('/protected');
+          console.log(res)
+      
           this.setState({ loading: false });
         })
         .catch(err => console.log(err));
@@ -63,7 +63,7 @@ class Register extends React.Component {
               value={this.state.credentials.password}
               onChange={this.handleChange}
             />
-          <Link to="/login"><button>Register</button></Link>
+       <button>Register</button>
           </form>
          
         </div>

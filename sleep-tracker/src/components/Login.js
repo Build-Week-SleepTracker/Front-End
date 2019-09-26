@@ -7,8 +7,8 @@ class Login extends React.Component {
     state = {
         loading: false,
       credentials: {
-        // email: '',
-        username: '',
+        email: '',
+        // username: '',
         password: ''
       }
     };
@@ -46,20 +46,20 @@ class Login extends React.Component {
           <div className="login-card">
             <div>💤</div>
           <form onSubmit={this.login}>
-          {/* <input
+          <input
               type="text"
               name="email"
               placeholder="email"
               value={this.state.credentials.email}
               onChange={this.handleChange}
-            /> */}
-            <input
+            />
+            {/* <input
               type="text"
               name="username"
               placeholder="username"
               value={this.state.credentials.username}
               onChange={this.handleChange}
-            />
+            /> */}
             <input
               type="password"
               name="password"
@@ -67,7 +67,7 @@ class Login extends React.Component {
               value={this.state.credentials.password}
               onChange={this.handleChange}
             />
-          <Link to="protected"> <button>Log in</button></Link>
+          <button>Log in</button>
           </form>
           <Register/>
           <div>💤</div>
