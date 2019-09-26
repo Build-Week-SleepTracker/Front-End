@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { axiosWithAuth } from "./axiosWithAuth";
-import {Bar, Pie} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 
 const initialSession = {
   bedtime:'',
@@ -90,11 +90,12 @@ const chartData = {
 
   return (
     <div className='main-container'> 
-   
+   <div>💤</div>
     <div className="homepage-container">
     
       {!editing && (
     <form onSubmit={createSession}>
+     
           <legend>New Sleep Session</legend>
          
           <label>
@@ -166,7 +167,7 @@ const chartData = {
         )}
         {editing && (
             <form onSubmit={saveEdit}>
-            <legend>Edit Session</legend>
+            <legend>Edit Session: {sessionToEdit.date}</legend>
            
             <label>
               Bed Time:
@@ -267,6 +268,7 @@ const chartData = {
       </div>
        
    </div> 
+   <div>💤</div>
     </div>
   );
 };
