@@ -16,10 +16,29 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #09d3ac;
+a {
+  color: rgb(52, 70, 151);
 }
+
+
+.header ul {
+  margin: 0;
+  padding: 10px;
+  box-shadow: 0px 3px 6px rgba(196, 196, 196, 0.16), 0 3px 6px rgba(207, 206, 206, 0.23);
+  
+}
+.header {
+  height: 59px;
+  
+}
+
+
+/* Header-Nav */
+
+/* .header{
+  background:lightcyan;
+  margin:auto;
+} */
 
 
 /* ContactForm css*/
@@ -159,12 +178,13 @@ h1 {
 .survey-container {
   width:50%;
   margin:auto;
-  background:lightcyan;
+  background:rgb(238, 224, 224);
   border-radius:5px;
 }
 
 .top-survey {
   margin:auto;
+  
 }
 
 .survey-form {
@@ -185,9 +205,9 @@ h1 {
   font-weight: lighter;
   padding: 20px 10px;
   border-radius: 5px;
-  outline: none;
   border: 1px solid #cfcfcf;
-  margin-right: 1%;
+  background:white;
+  width:100%;
   
 }
 .survey-btn{
@@ -195,6 +215,26 @@ h1 {
   width:50%;
   padding:10px;
 }
+
+.survey-form-errors {
+  color:red;
+  font-size: 0.75em;
+  margin:auto;
+}
+.survey-link{
+  text-decoration:none;
+  margin:auto; 
+  color:white;
+  background:#344697;
+}
+
+.rating-btn{
+  margin: 20px auto;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Survey Rating */
 
 .wrapper-survey-rating{
   height: 100vh;
@@ -213,11 +253,19 @@ h1 {
   border-radius:5px;
 }
 .rating-form {
-  margin:auto;
+  margin: 20px auto;
   width: 50%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   
+}
+
+.rating-symbols {
+  margin:20px auto;
+
+}
+.feedback {
+  padding:10px;
 }
 /* End of SurveyForm*/
