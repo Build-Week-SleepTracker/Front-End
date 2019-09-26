@@ -1,0 +1,130 @@
+
+body {
+  font-size: 1.2rem;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.spacer {
+  height: 100%;
+}
+
+.session-container {
+  display: flex;
+  height: 600px;
+  width: 100%;
+  flex-direction: column;
+
+}
+.Graph {
+  height: 500px;
+  width: 1000px;
+}
+.bottom-container {
+  margin: 20px 0px;
+  display: flex;
+  width: 100%;
+  flex-direction: column-reverse;
+  align-content: center;
+  align-items: center;
+}
+
+
+
+.homepage-container {
+ display: flex;
+ flex-direction: column;
+ justify-content: top;
+ align-content: center;
+
+  height: 360px;
+  width: 420px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  
+  }
+
+  
+li {
+      cursor: pointer;
+      padding: 6px 0;
+      display: flex;
+       margin: 10px;
+      
+    }
+ul {
+    list-style: none;
+    text-align: start;
+   width:100%;
+  
+  display: flex;
+  flex-direction: row;
+  }
+
+.delete {
+  color: rgb(177, 10, 10);
+}
+
+
+
+form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  
+}
+ 
+
+  label {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 36px 4px 40px;
+  }
+
+ legend {
+    padding-left: 40px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 18px;
+    margin-top: -10px;
+  }
+
+  input {
+    width: 120px;
+  }
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px 20px 41px;
+
+ 
+}
+ button {
+   width: 80px;
+
+    border: none;
+    background-color: rgb(52, 70, 151);
+    color: white;
+    padding: 3px 8px;
+    margin-top: 25px;
+  }
+
+
+form > input {
+  background-color: #d1d1c9;
+  border: 0;
+  padding: 6px 0;
+  font-size: 1rem;
+  width: 200px;
+  outline: 0;
+  color: rgb(11, 8, 32);
+  border-bottom: 1px solid #2a2b15;
+  margin-right: 8px;
+}
+
