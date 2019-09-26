@@ -1,0 +1,10 @@
+[build]
+base = "sleep-tracker/"
+publish = "sleep-tracker/build/"
+command = "yarn build"
+
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
