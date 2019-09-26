@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { axiosWithAuth } from "./axiosWithAuth";
-import {Bar, Pie} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 
 const initialSession = {
   bedtime:'',
@@ -31,20 +31,19 @@ const chartData = {
   }),
   datasets: [
       {
-          label: sessions.map(session => {
-            if(session.sleepquality === 4) {
-              return ` ${session.date} was a happy day!   you slept from: ${session.bedtime} - ${session.waketime}!`
-            }
-            else {
-              return ""
-            }
-          }),
-          data:sessions.map(session =>{
+          label: "Your Daily Mood",
+          data: sessions.map(session =>{
             return session.sleepquality
-          }) ,
-          backgroundColor: [
-            'blue'
-          ]
+          }),
+         backgroundColor: 
+           'rgb(52, 70, 151)'
+         
+         
+         
+
+        
+
+          
       }
     ]
 
@@ -91,10 +90,12 @@ const chartData = {
 
   return (
     <div className='main-container'> 
+   <div>💤</div>
     <div className="homepage-container">
-
+    
       {!editing && (
     <form onSubmit={createSession}>
+     
           <legend>New Sleep Session</legend>
          
           <label>
@@ -132,29 +133,29 @@ const chartData = {
           <label>
             Tired rating at bed time:
             <select name="MOB">
-             <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-             <option value="">4</option>
+             <option value="">😭</option>
+              <option value="">😟</option>
+              <option value="">🙂</option>
+             <option value="">😃</option>
              </select>
           </label>
           <label>
             Mood when waking:
             <select name="MOW">
-             <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-             <option value="">4</option>
+             <option value="">😭</option>
+              <option value="">😟</option>
+              <option value="">🙂</option>
+             <option value="">😃</option>
              </select>
             </label>
           <label>
             mood for day:
             <select type = "number" name="sleepquality"   onChange={e =>
                 setSessionToEdit({ ...sessionToEdit, sleepquality: e.target.value })} >
-             <option value="1" >1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-             <option value="4">4</option>
+             <option value="1" >😭</option>
+              <option value="2">😟</option>
+              <option value="3">🙂</option>
+             <option value="4">😃</option>
              </select>
        
           </label>
@@ -166,7 +167,7 @@ const chartData = {
         )}
         {editing && (
             <form onSubmit={saveEdit}>
-            <legend>Edit Session</legend>
+            <legend>Edit Session: {sessionToEdit.date}</legend>
            
             <label>
               Bed Time:
@@ -199,29 +200,29 @@ const chartData = {
             <label>
               Tired rating at bed time:
               <select name="MOB">
-               <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-               <option value="">4</option>
+               <option value="">😭</option>
+                <option value="">😟</option>
+                <option value="">🙂</option>
+               <option value="">😃</option>
                </select>
             </label>
             <label>
               Mood when waking:
               <select name="MOW">
-               <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-               <option value="">4</option>
+               <option value="">😭</option>
+                <option value="">😟</option>
+                <option value="">🙂</option>
+               <option value="">😃</option>
                </select>
               </label>
             <label>
               mood for day:
               <select type = "number" name="sleepquality"   onChange={e =>
                   setSessionToEdit({ ...sessionToEdit, sleepquality: e.target.value })} >
-               <option value="1" >1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-               <option value="4">4</option>
+               <option value="1" >😭</option>
+                <option value="2">😟</option>
+                <option value="3">🙂</option>
+               <option value="4">😃</option>
                </select>
          
             </label>
@@ -234,6 +235,11 @@ const chartData = {
 </div>
 <div className="bottom-container"> 
     <div className="session-container">
+    <h4> {sessions.map(session => {
+            if(session.sleepquality === 4) {
+              return `${session.date} was a happy day 😃!  
+                 you slept from: ${session.bedtime} - ${session.waketime}  military time!`
+            }})} </h4>
       <p>Sessions</p>
       <div className="list">
       <ul>
@@ -241,7 +247,7 @@ const chartData = {
           <li key={session.id} onClick={() => editSession(session)}>
             <span>
               <span className="delete" onClick={() => deleteSession(session)}>
-                x
+                O
               </span>{" "}
               {session.date}
             </span>
@@ -251,15 +257,18 @@ const chartData = {
  </div>
  
     </div>
+    
      <div className ="Graph">
      
      <Bar 
         data={chartData}
+       
       />
      
       </div>
        
    </div> 
+   <div>💤</div>
     </div>
   );
 };
