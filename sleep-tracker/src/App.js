@@ -5,6 +5,7 @@ import HomePage from './components/HomePage';
 import PrivateRoute from './components/PrivateRoute';
 import SessionsContext from './contexts/SessionContext'
 import './App.css';
+import ContactForm from "./components/ContactForm";
 
 
 
@@ -19,10 +20,10 @@ const [sessionList, setSessionList] = useState([])
       <div className ="header">
       <ul>
           <li>
-            <Link to="/login">Login</Link>
+              <Link to="/login">Login</Link>
           </li>
           <li>
-            <Link to="/protected">Homepage</Link>
+              <Link to="/protected">Homepage</Link>
           </li> 
           <li>
               {/* journal */}
@@ -31,7 +32,7 @@ const [sessionList, setSessionList] = useState([])
                {/* survey */}
           </li>
           <li>
-               {/* contact form */}
+              <Link to='/contactForm'>Contact Form</Link>
           </li>
         </ul>
       </div>
@@ -39,6 +40,7 @@ const [sessionList, setSessionList] = useState([])
           <Route exact path="/protected" component={HomePage} />
           <Route path="/login" component={Login} />
           <Route component={Login} />
+          <Route exact path='/contactForm' component={ContactForm}/>
            
         </Switch>
 
