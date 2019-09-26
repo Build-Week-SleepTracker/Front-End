@@ -43,7 +43,7 @@ const chartData = {
             return session.sleepquality
           }) ,
           backgroundColor: [
-            'blue'
+            'rgb(52, 70, 151)'
           ]
       }
     ]
@@ -241,7 +241,7 @@ const chartData = {
           <li key={session.id} onClick={() => editSession(session)}>
             <span>
               <span className="delete" onClick={() => deleteSession(session)}>
-                x
+                O
               </span>{" "}
               {session.date}
             </span>
