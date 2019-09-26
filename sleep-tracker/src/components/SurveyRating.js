@@ -40,9 +40,9 @@ const Star = () => {
        <div className ="Star">
          <form className='rating-form' onSubmit={handleSubmit}>
            <h1>Rate Us</h1>
-            <Rating emptySymbol="far fa-star fa-2x" fullSymbol="fa fa-star fa-2x"/>
+            <Rating emptySymbol="far fa-star fa-2x" fullSymbol="fa fa-star fa-2x" className='rating-symbols' />
             <textarea className="feedback" name="notes" onChange={handleChange}  placeholder="Feedback" ></textarea>
-            <button>Next</button>
+            <button className="rating-btn">Submit</button>
   
          </form>
           </div>

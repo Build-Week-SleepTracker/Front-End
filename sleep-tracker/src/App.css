@@ -21,6 +21,13 @@
   color: #09d3ac;
 }
 
+/* Header-Nav */
+
+/* .header{
+  background:lightcyan;
+  margin:auto;
+} */
+
 
 /* ContactForm css*/
 
@@ -142,7 +149,6 @@ h1 {
 }
 
 /*End of ContactForm Css*/
-<<<<<<< HEAD
 
 
 /* SurveyForm */
@@ -160,12 +166,13 @@ h1 {
 .survey-container {
   width:50%;
   margin:auto;
-  background:lightcyan;
+  background:rgb(238, 224, 224);
   border-radius:5px;
 }
 
 .top-survey {
   margin:auto;
+  
 }
 
 .survey-form {
@@ -186,9 +193,9 @@ h1 {
   font-weight: lighter;
   padding: 20px 10px;
   border-radius: 5px;
-  outline: none;
   border: 1px solid #cfcfcf;
-  margin-right: 1%;
+  background:white;
+  width:100%;
   
 }
 .survey-btn{
@@ -196,6 +203,26 @@ h1 {
   width:50%;
   padding:10px;
 }
+
+.survey-form-errors {
+  color:red;
+  font-size: 0.75em;
+  margin:auto;
+}
+.survey-link{
+  text-decoration:none;
+  margin:auto; 
+  color:white;
+  background:#344697;
+}
+
+.rating-btn{
+  margin: 20px auto;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Survey Rating */
 
 .wrapper-survey-rating{
   height: 100vh;
@@ -214,13 +241,19 @@ h1 {
   border-radius:5px;
 }
 .rating-form {
-  margin:auto;
+  margin: 20px auto;
   width: 50%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   
 }
+
+.rating-symbols {
+  margin:20px auto;
+
+}
+.feedback {
+  padding:10px;
+}
 /* End of SurveyForm*/
-=======
->>>>>>> 3f89f5d0c38841ecb79e061a1e18d50258781444
