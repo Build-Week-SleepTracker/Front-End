@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { axiosWithAuth } from "./axiosWithAuth";
-
+import {Bar, Pie} from 'react-chartjs-2';
+import Graph from './Graph'
 const initialSession = {
   bedtime:'',
   waketime: '',
-  date:null,
+  date:'',
   user_id: Date.now(),
   sleepquality:'',
 };
+
 
 const SessionList = ({ sessions, updateSession, getData }) => {
     console.log(sessions);
@@ -20,6 +22,35 @@ const SessionList = ({ sessions, updateSession, getData }) => {
       setEditing(true);
       setSessionToEdit(session);
     };
+
+    
+const chartData = {
+  
+  labels: sessions.map(session =>{
+    return session.date
+  }),
+  datasets: [
+      {
+          label: sessions.map(session => {
+            if(session.sleepquality === 4) {
+              return ` ${session.date} was a happy day!   you slept from: ${session.bedtime} - ${session.waketime}!`
+            }
+            else {
+              return ""
+            }
+          }),
+          data:sessions.map(session =>{
+            return session.sleepquality
+          }) ,
+          backgroundColor: [
+            'blue'
+          ]
+      }
+    ]
+
+}
+
+
 
     const saveEdit = e => {
         e.preventDefault();
@@ -90,7 +121,11 @@ const SessionList = ({ sessions, updateSession, getData }) => {
           <label>
             Date:
             <input type="date"
-             
+              onChange={e =>
+                setSessionToEdit({
+                  ...sessionToEdit,
+                  date: e.target.value})
+                }
             />
           </label>
           <label>
@@ -205,14 +240,19 @@ const SessionList = ({ sessions, updateSession, getData }) => {
               <span className="delete" onClick={() => deleteSession(session)}>
                 x
               </span>{" "}
-              {session.bedtime}
+              {session.date}
             </span>
           </li>
         ))}
  </ul>  
      </div>
-
+     <div className ="Graph">
      
+     <Bar 
+        data={chartData}
+      />
+     
+      </div>
       
     </div>
   );

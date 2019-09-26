@@ -1,40 +1,41 @@
-import React, {Component} from 'react';
-import {Bar} from 'chart.js';
+import React from 'react';
+import {Bar} from 'react-chartjs-2';
 
-class Graph extends Component {
-    constructor() {
-        super();
-        this.state = {
+
+class Graph extends React.Component {
+    constructor(props) {
+        super(props);
+        console.log(props.sessions)
+        this.state= {
             chartData: {
-                labels: ['Monday', "Tuesday", 'Wednesday','Thursday','Friday','Saturday','Sunday'], 
-                datasets: [
-                    {
-                        label: 'Hours of Sleep',
-                        data:[8, 6, 5, 9, 10, 7, 11,],
-                        backgroundColor: ['blue']
-                    }
-                ]
+                labels: ['Monday' ,'Tuesday', 'Wednesday', 'Thusday','Friday','Saturday','Sunday'],
+                 datasets: [
+                     {
+                         label:'Hours of Sleep',
+                         data:[
+                             7,
+                             8,
+                             8,
+                             9,
+                             10,
+                             7,
+                             
+                             
+                         ],
+                         backgroundColor: [
+                             'rgba(255,99, 132,0.6'
+                         ]
+                     }
+                 ]
             }
         }
-}
-    render() {
-        return (
-            <div className = "graph">
-                <Bar 
-                   data={this.state.chartData}
-                   width={100}
-                   height={50}
-                   options= {{
-                       maintainAspectRatio: false
-                   }}
-                   
-                   
-                   
-                   
-                   />
-            </div>
-        )
     }
+ render(){ 
+    return (
+  <div>
+     
+  </div>
+  )}
 }
 
 export default Graph
